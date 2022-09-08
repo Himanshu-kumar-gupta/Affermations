@@ -21,6 +21,7 @@ class ItemAdapter(private val context: Context,
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.stringResourceId)
+        holder.imageView.setImageResource(item.imageResourceId)
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -32,5 +33,6 @@ class ItemAdapter(private val context: Context,
     // Each data item is just an Affirmation object.
     class ItemViewHolder(binding:ListItemBinding): RecyclerView.ViewHolder(binding.root) {
         val textView = binding.itemTitle
+        val imageView = binding.itemImage
     }
 }
